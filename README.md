@@ -35,7 +35,7 @@ On dry granular terrain, reaction forces depend on **intrusion depth and speed**
 Short bursts boost height but increase “spikiness” (PIR); longer dwell softens contact but can reduce apex.
 
 <p align="center">
-  <img src="assets/coarse_heatmap_apex.png" width="420" alt="Coarse grid: apex change vs BB" />
+  <img src="assets/coarse_heatmap_apex.png" width="650" alt="Coarse grid: apex change vs BB" />
   <!-- <img src="assets/coarse_heatmap_pir.png"  width="420" alt="Coarse grid: PIR" /> -->
 </p>
 
@@ -43,7 +43,7 @@ Short bursts boost height but increase “spikiness” (PIR); longer dwell softe
 This regime improves both height **and** peak-load metrics at equal work.
 
 <p align="center">
-  <img src="assets/refined_heatmap_apex.png" width="420" alt="Refined grid: apex improvement" />
+  <img src="assets/refined_heatmap_apex.png" width="650" alt="Refined grid: apex improvement" />
   <!-- <img src="assets/refined_heatmap_pir.png"  width="420" alt="Refined grid: PIR change vs BB" /> -->
 </p>
 
