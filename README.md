@@ -36,7 +36,7 @@ Short bursts boost height but increase “spikiness” (PIR); longer dwell softe
 
 <p align="center">
   <img src="assets/coarse_heatmap_apex.png" width="420" alt="Coarse grid: apex change vs BB" />
-  <img src="assets/coarse_heatmap_pir.png"  width="420" alt="Coarse grid: PIR" />
+  <!-- <img src="assets/coarse_heatmap_pir.png"  width="420" alt="Coarse grid: PIR" /> -->
 </p>
 
 ### Refined sweep: sweet spot around 30 ms burst + 20–22 ms dwell
@@ -44,7 +44,7 @@ This regime improves both height **and** peak-load metrics at equal work.
 
 <p align="center">
   <img src="assets/refined_heatmap_apex.png" width="420" alt="Refined grid: apex improvement" />
-  <img src="assets/refined_heatmap_pir.png"  width="420" alt="Refined grid: PIR change vs BB" />
+  <!-- <img src="assets/refined_heatmap_pir.png"  width="420" alt="Refined grid: PIR change vs BB" /> -->
 </p>
 
 ### Equal-work fairness check
