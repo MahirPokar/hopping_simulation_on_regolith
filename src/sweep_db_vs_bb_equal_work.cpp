@@ -18,6 +18,21 @@
     // phase (which load the checkpoint file and then drop the ball, literally).
     // =============================================================================
 
+// -----------------------------------------------------------------------------
+// Local modifications (Mahir Pokar)
+//
+// This file is based on the Chrono::Gpu co-simulation demo and was adapted for
+// MSc dissertation experiments (dwell–burst vs bang–bang comparisons, sweeps,
+// and post-processing).
+//
+// Notes for portability:
+//  - Set CHRONO_DATA_DIR to point at Chrono's data directory (optional).
+//  - If ./configs/ballCosim_test.json exists, it will be used in preference to
+//    the default Chrono data JSON.
+// -----------------------------------------------------------------------------
+
+#include <cstdlib>   // std::getenv
+
     #include <iostream>
     #include <vector>
     #include <string>
@@ -48,6 +63,30 @@
 
     using namespace chrono;
     using namespace chrono::gpu;
+    
+    // ----------------------------------------------------------------------------
+    // Portability helpers
+    // ----------------------------------------------------------------------------
+    // Optionally override Chrono's data directory by setting the CHRONO_DATA_DIR
+    // environment variable (e.g., export CHRONO_DATA_DIR=/path/to/chrono/data).
+    static void ConfigureChronoDataPath() {
+        const char* chrono_data = std::getenv("CHRONO_DATA_DIR");
+        if (chrono_data && chrono_data[0] != '\0') {
+            SetChronoDataPath(chrono_data);
+        }
+    }
+
+    // Prefer a repo-local JSON (if present) so this project can ship a self-contained
+    // demo configuration. Otherwise fall back to Chrono's built-in data file lookup.
+    static std::string ResolveInputJson() {
+        const std::string local_json = "./configs/ballCosim_test.json";
+        std::ifstream f(local_json);
+        if (f.good()) {
+            return local_json;
+        }
+        return GetChronoDataFile("gpu/ballCosim_test.json");
+    }
+
 
 
     #include <sstream>
@@ -821,8 +860,8 @@
     }
 
     int main(int argc, char* argv[]) {
-        SetChronoDataPath("/home/mahir/chrono/chrono_build/data/");
-        std::string inputJson = GetChronoDataFile("gpu/ballCosim_test.json");
+        ConfigureChronoDataPath();
+        std::string inputJson = ResolveInputJson();
         if (argc == 2) {
             inputJson = std::string(argv[1]);
         } else if (argc > 2) {
@@ -832,7 +871,7 @@
 
         ChGpuSimulationParameters params;
         if (!ParseJSON(inputJson, params)) {
-            std ::cout << "ERROR: reading input file " << inputJson << std::endl;
+            std::cout << "ERROR: reading input file " << inputJson << std::endl;
             return 1;
         }
 
