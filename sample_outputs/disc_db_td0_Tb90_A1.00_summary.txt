@@ -1,0 +1,1 @@
+A_scale=1.000000  Wact[J]=0.931990  EPE[J]=0.542531  eta=0.582121  Fn_peak[N]=17.494233  Fn_norm=4.458265  contact[s]=0.000000  dz_apex[m]=0.138260  dFdz_all[N/m]=1429.862395  dFdz_dwell[N/m]=0.000000  impulse[N*s]=1.216659  G=14.378910  HJ=0.148349  sink[cm]=2.603589

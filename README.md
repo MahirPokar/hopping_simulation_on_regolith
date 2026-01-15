@@ -87,7 +87,7 @@ Net actuator work is computed from actuator power and matched between schedules:
 ---
 
 ## Repository contents
-- `Sweep_dwell_burst.cpp` — sweep driver (DB vs BB, equal-work solve)
+- `src/sweep_db_vs_bb_equal_work.cpp` — sweep driver (DB vs BB, equal-work solve)
 - `postprocess_make_figs.py` — plotting and analysis
 
 **Recommended structure (optional cleanup):**
